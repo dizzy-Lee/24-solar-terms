@@ -1,9 +1,9 @@
 /**
- *
- * 24节气
+ * @description: 24节气日期转换
+ * @param {number} 数字1-24
+ * @return {object}{ month: number, day: number, solarTerm: string }
  */
-
-Date.prototype.get24SolarTerms = function (term) {
+const get24SolarTerms =  (term) => {
   if (term >= 1 && term <=24) {
     const C = [
       { name: "立春", num: 3.87, month: 2 },
@@ -28,8 +28,8 @@ Date.prototype.get24SolarTerms = function (term) {
       { name: "小雪", num: 22.36, month: 11 },
       { name: "大雪", num: 7.18, month: 12 },
       { name: "冬至", num: 21.94, month: 12 },
-      { name: "小寒", num: 5.4055, month: 01 },
-      { name: "大寒", num: 20.12, month: 01 },
+      { name: "小寒", num: 5.4055, month: 1 },
+      { name: "大寒", num: 20.12, month: 1 },
     ];
     const date = new Date();
     const year = date.getFullYear();
@@ -81,8 +81,11 @@ Date.prototype.get24SolarTerms = function (term) {
     return {
       month: C[term - 1].month,
       day: thatDay,
+      solarTerm: C[term - 1].name
     };
   } else {
     throw Error('term must be between 1 and 24')
   }
 };
+
+export default get24SolarTerms
