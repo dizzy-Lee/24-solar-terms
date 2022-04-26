@@ -3,7 +3,7 @@
  * @param {number} 数字1-24
  * @return {object}{ month: number, day: number, solarTerm: string }
  */
-const get24SolarTerms =  (term) => {
+const getSolarTerm =  (term) => {
   if (term >= 1 && term <=24) {
     const C = [
       { name: "立春", num: 3.87, month: 2 },
@@ -88,4 +88,4 @@ const get24SolarTerms =  (term) => {
   }
 };
 
-export default get24SolarTerms
+export default getSolarTerm
